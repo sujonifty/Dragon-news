@@ -30,7 +30,7 @@ const Navbar = () => {
                 <div className="navbar-end flex justify-center items-center gap-4">
                     <FaCircleUser />
 
-                    <NavLink to="/logIn" className="btn">Log In</NavLink>
+                    <NavLink to="/login" className="btn">Log In</NavLink>
                 </div>
             </div>
         </div>
