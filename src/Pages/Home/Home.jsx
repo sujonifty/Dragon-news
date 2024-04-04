@@ -20,7 +20,7 @@ const Home = () => {
                 <div className="border col-span-1 lg:col-span-2">
                     <h1>News Coming</h1>
                 </div>
-                <div className="border">
+                <div className="">
                     <RightSideNav></RightSideNav>
                 </div>
             </div>
