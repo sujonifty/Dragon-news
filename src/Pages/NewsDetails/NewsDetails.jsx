@@ -9,7 +9,7 @@ const NewsDetails = () => {
         <div>
             <Header></Header>
             <Navbar></Navbar>
-            <div className="grid md:grid-cols-3">
+            <div className="grid md:grid-cols-4">
                 <div className="col-span-3">
                     <h1>News Details</h1>
                     {
