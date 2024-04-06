@@ -1,20 +1,35 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { authContext } from "../../Providers/AuthProvider";
+import Navbar from "../Shared/Navbar/Navbar";
 
 const Login = () => {
- const   handleLogin=(e)=>{
+    const { user, createLogin } = useContext(authContext);
+    const handleLogin = (e) => {
         e.preventDefault();
         /*const email =e.target.email.value;
         const password =e.target.password.value;
         console.log(email, password)
         */
-       //another way to get email & password 
-       const form = new FormData(e.currentTarget);
-       const email = form.get('email');
-       const password = form.get('password');
-       console.log(email, password);
+        //another way to get email & password 
+        const form = new FormData(e.currentTarget);
+        const email = form.get('email');
+        const password = form.get('password');
+        console.log(email, password);
+
+        //create login
+        createLogin(email, password)
+        .then(result => {
+                console.log(result);
+                console.log('Login successfully');
+            })
+        .catch(error => {
+                console.log(error);
+            })
     }
     return (
         <div>
+            <Navbar></Navbar>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content">
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

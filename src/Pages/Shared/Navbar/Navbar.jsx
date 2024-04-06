@@ -1,8 +1,22 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaCircleUser } from "react-icons/fa6";
+import { useContext } from "react";
+import { authContext } from "../../../Providers/AuthProvider";
 
 
 const Navbar = () => {
+    const {user, createLogOut}=useContext(authContext);
+    console.log(user)
+    const handleLogOut=()=>{
+        createLogOut()
+        .then(result => {
+            console.log(result);
+            console.log('Log out successfully');
+        })
+    .catch(error => {
+            console.log(error);
+        })
+    }
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>
@@ -30,7 +44,9 @@ const Navbar = () => {
                 <div className="navbar-end flex justify-center items-center gap-4">
                     <FaCircleUser />
 
-                    <NavLink to="/login" className="btn">Log In</NavLink>
+                    {
+                        user? <button onClick={handleLogOut} to="/login" className="btn">Log out</button>: <Link to="/login" className="btn">Log In</Link>
+                    }
                 </div>
             </div>
         </div>
