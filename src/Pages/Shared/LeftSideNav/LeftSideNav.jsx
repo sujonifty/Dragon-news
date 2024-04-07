@@ -8,7 +8,7 @@ const LeftSideNav = () => {
         fetch('categories.json')
         .then(res=>res.json())
         .then(data=>setCategories(data))
-        console.log(categories);
+        // console.log(categories);
     },[])
     return (
         <div className="space-y-4">
